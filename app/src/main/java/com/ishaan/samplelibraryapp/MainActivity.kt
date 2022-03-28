@@ -1,11 +1,18 @@
 package com.ishaan.samplelibraryapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.ishaan.samplelibrary.LibraryClass
+import com.ishaan.samplelibraryapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnClick.setOnClickListener {
+            LibraryClass.init(this)
+        }
     }
 }
